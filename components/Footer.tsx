@@ -64,7 +64,7 @@ export function Footer() {
         <StyledAnchor href="https://www.linkedin.com/in/elia-darwish/" target="_blank" rel="noreferrer">
           LinkedIn
         </StyledAnchor>
-        <StyledAnchor href="/documents/elia-darwish_CV.pdf" target="_blank" rel="noreferrer">
+        <StyledAnchor href="/documents/elia-darwish-cv.pdf" target="_blank" rel="noreferrer">
           CV
         </StyledAnchor>
       </HStack>
