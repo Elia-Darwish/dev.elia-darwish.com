@@ -1,3 +1,10 @@
 {
-  "extends": "next/core-web-vitals"
+  "plugins": ["@typescript-eslint", "prettier", "import"],
+  "extends": ["next/core-web-vitals", "prettier"],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": ["warn"],
+    "no-console": "warn",
+    "prettier/prettier": "warn",
+    "import/order": ["warn", { "newlines-between": "always" }]
+  }
 }

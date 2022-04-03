@@ -1,9 +1,11 @@
-import { createStitches } from '@stitches/react'
+import { createStitches, PropertyValue } from '@stitches/react'
 
 export const { styled, getCssText, config, createTheme, css, globalCss, keyframes, prefix, reset, theme } =
   createStitches({
     theme: {
       colors: {
+        'hsl-black': '0 0% 0%',
+
         'primary-50': '#EAEFFB',
         'primary-100': '#D9E2F7',
         'primary-200': '#AFC2EE',
@@ -26,13 +28,21 @@ export const { styled, getCssText, config, createTheme, css, globalCss, keyframe
         'grey-800': '#262626',
         'grey-900': '#171717',
 
+        'bg-light': '#F3F3F3',
+        'bg-dark': '#121212',
+
+        bg: '$bg-light',
+
         white: '#FFFFFF',
         black: '#000000',
+
+        heading: '$grey-900',
+        text: '$grey-800',
       },
 
       fonts: {
         primary: '"Lato", sans-serif',
-        accent: '"Architects Daughter", cursive',
+        accent: '"Raleway", sans-serif',
       },
       fontSizes: {
         '6xl': '5.96rem', // 95.37px
@@ -51,6 +61,7 @@ export const { styled, getCssText, config, createTheme, css, globalCss, keyframe
         thin: '100',
         light: '300',
         normal: '400',
+        medium: '500',
         bold: '700',
         black: '900',
       },
@@ -181,10 +192,7 @@ export const { styled, getCssText, config, createTheme, css, globalCss, keyframe
         xl: '0 20px 25px -5px hsl($colors$hsl-black / 0.1), 0 10px 10px -5px hsl($colors$hsl-black / 0.04)',
         '2xl': '0 25px 50px -12px hsl($colors$hsl-black / 0.25)',
         inner: 'inset 0 2px 4px 0 hsl($colors$hsl-black / 0.06)',
-        outline: '0 0 0 2px hsl($colors$hsl-blue100)',
-        selected: '0 0 0 2px hsl($colors$hsl-blue300)',
-        'outline-error': '0 0 0 2px hsl($colors$hsl-error300)',
-        'outline-success': '0 0 0 2px hsl($colors$hsl-success300)',
+        outline: '0 0 0 2px $colors$primary-500',
         none: 'none',
       },
       transitions: {
@@ -213,22 +221,106 @@ export const { styled, getCssText, config, createTheme, css, globalCss, keyframe
         background: 'background-color 0.3s cubic-bezier(0.33, 1, 0.68, 1)',
       },
     },
+    media: {
+      md: '(min-width: 768px)',
+      lg: '(min-width: 1024px)',
+      xl: '(min-width: 1280px)',
+      '2xl': '(min-width: 1366px)',
+      '3xl': '(min-width: 1536px)',
+    },
+    utils: {
+      paddingX: (value: PropertyValue<'padding'>) => ({
+        paddingLeft: value,
+        paddingRight: value,
+      }),
+      paddingY: (value: PropertyValue<'padding'>) => ({
+        paddingTop: value,
+        paddingBottom: value,
+      }),
+      marginX: (value: PropertyValue<'margin'>) => ({
+        marginLeft: value,
+        marginRight: value,
+      }),
+      marginY: (value: PropertyValue<'margin'>) => ({
+        marginTop: value,
+        marginBottom: value,
+      }),
+      size: (value: PropertyValue<'width'>) => ({
+        width: value,
+        height: value,
+      }),
+      spaceX: (value: PropertyValue<'margin'>) => ({
+        '& > * + *': {
+          marginLeft: value,
+        },
+      }),
+      spaceY: (value: PropertyValue<'margin'>) => ({
+        '& > * + *': {
+          marginTop: value,
+        },
+      }),
+      gridCols: (value: number) => ({
+        gridTemplateColumns: Array(value).fill('1fr').join(' '),
+      }),
+      gridRows: (value: number) => ({
+        gridTemplateRows: Array(value).fill('1fr').join(' '),
+      }),
+      colSpan: (value: number) => ({
+        gridColumn: `span ${value}`,
+      }),
+      rowSpan: (value: number) => ({
+        gridRow: `span ${value}`,
+      }),
+      gridColsFit: (value: PropertyValue<'width'>) => ({
+        gridTemplateColumns: `repeat(auto-fit, minmax(${typeof value === 'number' ? `${value}px` : value}, 1fr))`,
+      }),
+      gridColsFill: (value: PropertyValue<'width'>) => ({
+        gridTemplateColumns: `repeat(auto-fill, minmax(${typeof value === 'number' ? `${value}px` : value}, 1fr))`,
+      }),
+      gridRowsFit: (value: PropertyValue<'width'>) => ({
+        gridTemplateRows: `repeat(auto-fit, minmax(${typeof value === 'number' ? `${value}px` : value}, 1fr))`,
+      }),
+      gridRowsFill: (value: PropertyValue<'width'>) => ({
+        gridTemplateRows: `repeat(auto-fill, minmax(${typeof value === 'number' ? `${value}px` : value}, 1fr))`,
+      }),
+      lineClamp: (value: number) => ({
+        overflow: 'hidden',
+        display: '-webkit-box',
+        '-webkit-box-orient': 'vertical',
+        '-webkit-line-clamp': `${value}`,
+        textOverflow: 'ellipsis',
+      }),
+    },
   })
+
+export const darkTheme = createTheme({
+  colors: {
+    bg: '$bg-dark',
+
+    heading: '$grey-50',
+    text: '$grey-200',
+  },
+})
 
 export const globalStyles = globalCss({
   html: {
-    size: '100%'
+    size: '$full',
   },
 
   body: {
     fontFamily: '$primary',
     lineHeight: '$normal',
 
-    size: '100%',
+    width: '$vw',
+    height: '$vh',
+    overflow: 'hidden',
 
-    backgroundImage: 'url(/images/background-light.jpg)',
+    backgroundColor: '$bg',
+    backgroundImage: 'url(/images/bg/bg.svg)',
     backgroundSize: '12px',
     backgroundRepeat: 'repeat',
+
+    transition: '$color',
   },
 
   '*, *::before, *::after': {
@@ -239,5 +331,22 @@ export const globalStyles = globalCss({
 
     '-webkit-font-smoothing': 'antialiased',
     '-moz-osx-font-smoothing': 'grayscale',
+
+    transition: '$color',
+  },
+
+  '*::selection': {
+    backgroundColor: '$primary-500',
+    color: '$white',
+  },
+
+  '#__next': {
+    size: '$full',
+    overflow: 'hidden',
   },
 })
+
+export enum Themes {
+  dark = 'dark',
+  light = 'light',
+}

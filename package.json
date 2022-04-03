@@ -13,9 +13,11 @@
     "@fontsource/lato": "^4.5.5",
     "@fontsource/raleway": "^4.5.5",
     "@stitches/react": "^1.2.7",
+    "framer-motion": "^6.2.8",
     "next": "12.1.4",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "valtio": "https://pkg.csb.dev/pmndrs/valtio/commit/e1f4e33d/valtio"
   },
   "devDependencies": {
     "@types/node": "17.0.23",
@@ -23,6 +25,9 @@
     "@types/react-dom": "17.0.14",
     "eslint": "8.12.0",
     "eslint-config-next": "12.1.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2",
     "typescript": "4.6.3"
   }
 }
