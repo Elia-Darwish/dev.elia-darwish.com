@@ -4,6 +4,8 @@
     "source.fixAll.eslint": true
   },
   "cSpell.words": [
+    "blobity",
+    "Blobity",
     "darwish",
     "Darwish",
     "DARWISH",
@@ -12,6 +14,7 @@
     "fontsource",
     "lato",
     "Lato",
+    "msapplication",
     "prisma",
     "raleway",
     "valtio"

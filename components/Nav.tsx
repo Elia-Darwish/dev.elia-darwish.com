@@ -1,13 +1,13 @@
 import { m } from 'framer-motion'
 
 import { Logo } from './Logo'
-import { Box, ButtonPrimitive as Button, HStack } from './primitives'
+import { ButtonPrimitive as Button, HStack } from './primitives'
 
-import { styled, Themes } from 'stitches.config'
+import { styled } from 'stitches.config'
 import { useColorTheme } from 'state/theme'
 
 const ThemeSwitch = styled(Button, {
-  size: '$12',
+  size: '$10',
 
   backgroundColor: '$bg',
   backgroundImage: 'url(/images/buttons/bg.svg)',
@@ -31,8 +31,17 @@ export function Nav() {
   const { toggleColorTheme } = useColorTheme()
 
   return (
-    <HStack as="nav" css={{ paddingX: '$12', paddingY: '$3', justifyContent: 'space-between', alignItems: 'center' }}>
-      <Logo css={{ size: '$24', color: '$heading' }} />
+    <HStack
+      as="nav"
+      css={{
+        paddingX: '$8',
+        paddingY: '$3',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        '@md': { paddingX: '$12' },
+      }}
+    >
+      <Logo css={{ size: '$16', color: '$heading', marginLeft: '-$3', '@md': { size: '$24' } }} />
 
       <AnimatedThemeSwitch
         initial={{ scale: 1 }}

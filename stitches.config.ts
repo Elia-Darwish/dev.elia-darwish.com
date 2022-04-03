@@ -227,6 +227,9 @@ export const { styled, getCssText, config, createTheme, css, globalCss, keyframe
       xl: '(min-width: 1280px)',
       '2xl': '(min-width: 1366px)',
       '3xl': '(min-width: 1536px)',
+      '4xl': '(min-width: 1792px)',
+      '5xl': '(min-width: 1920px)',
+      '6xl': '(min-width: 2560px)',
     },
     utils: {
       paddingX: (value: PropertyValue<'padding'>) => ({
