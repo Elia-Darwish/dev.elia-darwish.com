@@ -145,7 +145,11 @@ const Home: NextPage = () => {
         type="Person"
         name="Elia Darwish"
         url="https://elia-darwish.dev"
-        image="https://www.elia-darwish.dev/images/avatar.png"
+        image={[
+          'https://www.elia-darwish.dev/images/avatar-1x1.jpg',
+          'https://www.elia-darwish.dev/images/avatar-4x3.jpg',
+          'https://www.elia-darwish.dev/images/avatar-16x9.jpg',
+        ]}
         jobTitle="Web Developer"
         sameAs={[
           'https://twitter.com/DarwishElia',
