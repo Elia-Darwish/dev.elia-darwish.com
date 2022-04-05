@@ -44,6 +44,7 @@ export function Nav() {
       <Logo css={{ size: '$16', color: '$heading', marginLeft: '-$3', '@md': { size: '$24' } }} />
 
       <AnimatedThemeSwitch
+        aria-label="switch theme"
         initial={{ scale: 1 }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
