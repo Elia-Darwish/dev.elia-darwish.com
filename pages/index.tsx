@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Fragment } from 'react'
+import { SocialProfileJsonLd } from 'next-seo'
 
 import avatar from 'public/images/avatar-with-logos.png'
 import { Box, Grid } from 'components/primitives'
@@ -18,7 +19,7 @@ const Home: NextPage = () => {
         <title>Elia Darwish</title>
         <meta
           name="description"
-          content="a web developer with a big passion for Frontend. I enjoy creating and refining accessible user interfaces and UI elements."
+          content="Elia Darwish is a web developer with a big passion for Frontend. I enjoy creating and refining accessible user interfaces and UI elements."
         />
       </Head>
 
@@ -138,6 +139,25 @@ const Home: NextPage = () => {
           />
         </Box>
       </Grid>
+
+      <SocialProfileJsonLd
+        type="Person"
+        name="Elia Darwish"
+        url="https://elia-darwish.dev"
+        image="https://www.elia-darwish.dev/images/avatar.png"
+        jobTitle="Web Developer"
+        sameAs={[
+          'https://twitter.com/DarwishElia',
+          'https://www.linkedin.com/in/elia-darwish/',
+          'https://github.com/Elia-Darwish',
+          'https://elia-darwish.dev',
+        ]}
+        worksFor={{
+          '@type': 'Organization',
+          name: 'shetani oHG',
+        }}
+      />
+      <script type="application/ld+json"></script>
     </Fragment>
   )
 }
