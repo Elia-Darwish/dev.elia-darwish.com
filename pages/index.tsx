@@ -128,9 +128,9 @@ const Home: NextPage = () => {
             src={avatar}
             alt="Elia's avatar"
             layout="fill"
-            sizes="90w, (min-width: 768px) 30w, (min-width: 1280px) 40w"
+            sizes="80vw, (min-width: 768px) 30vw, (min-width: 1280px) 40vw"
             priority
-            quality={80}
+            quality={100}
             css={{
               objectFit: 'cover',
               objectPosition: 'center top',
