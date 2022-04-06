@@ -130,7 +130,7 @@ const Home: NextPage = () => {
             layout="fill"
             sizes="(min-width: 768px) 30vw, (min-width: 1280px) 40vw, 80vw"
             priority
-            quality={90}
+            quality={80}
             css={{
               objectFit: 'cover',
               objectPosition: 'center top',
