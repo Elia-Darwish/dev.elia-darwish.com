@@ -55,16 +55,16 @@ export function Footer() {
           '@md': { spaceX: '$8', justifyContent: 'flex-start', width: 'max-content' },
         }}
       >
-        <StyledAnchor href="https://github.com/Elia-Darwish" target="_blank">
+        <StyledAnchor href="https://github.com/Elia-Darwish" target="_blank" rel="noreferrer">
           Github
         </StyledAnchor>
-        <StyledAnchor href="https://twitter.com/DarwishElia" target="_blank">
+        <StyledAnchor href="https://twitter.com/DarwishElia" target="_blank" rel="noreferrer">
           Twitter
         </StyledAnchor>
-        <StyledAnchor href="https://www.linkedin.com/in/elia-darwish/" target="_blank">
+        <StyledAnchor href="https://www.linkedin.com/in/elia-darwish/" target="_blank" rel="noreferrer">
           LinkedIn
         </StyledAnchor>
-        <StyledAnchor href="/documents/elia-darwish-cv.pdf" target="_blank">
+        <StyledAnchor href="/documents/elia-darwish-cv.pdf" target="_blank" rel="noreferrer">
           CV
         </StyledAnchor>
       </HStack>
