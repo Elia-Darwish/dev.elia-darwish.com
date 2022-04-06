@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         <title>Elia Darwish</title>
         <meta
           name="description"
-          content="Elia Darwish is a web developer with a big passion for Frontend. I enjoy creating and refining accessible user interfaces and UI elements."
+          content="Elia Darwish is a web developer with a big passion for Frontend. He enjoy creating and refining accessible user interfaces and UI elements."
         />
       </Head>
 
