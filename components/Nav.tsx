@@ -41,7 +41,7 @@ export function Nav() {
         '@md': { paddingX: '$12' },
       }}
     >
-      <Logo css={{ size: '$16', color: '$heading', marginLeft: '-$3', '@md': { size: '$24' } }} />
+      <Logo css={{ size: '$18', color: '$heading', marginLeft: '-$3', '@md': { size: '$24' } }} />
 
       <AnimatedThemeSwitch
         aria-label="switch theme"

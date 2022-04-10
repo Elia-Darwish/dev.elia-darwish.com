@@ -28,8 +28,7 @@ const Home: NextPage = () => {
         css={{
           size: '$full',
           gridCols: 1,
-          gridRows: 2,
-          gap: '$3',
+          gridTemplateRows: '1.2fr 1fr',
           '@xl': { gridCols: 2, gridRows: 1, gap: '$8', padding: '$8' },
         }}
       >
@@ -119,11 +118,19 @@ const Home: NextPage = () => {
               Digital painting, dog psychology, handcrafts and photography are some of the things I enjoy doing on the
               side.
             </Text>
-            <Button css={{ marginTop: '$8' }}>get in touch!</Button>
+            <Button css={{ marginTop: '$4', '@md': { marginTop: '$8' } }}>get in touch!</Button>
           </Box>
         </Box>
 
-        <Box css={{ position: 'relative', order: 1, marginX: '$5', '@md': { marginX: 0 }, '@xl': { order: 2 } }}>
+        <Box
+          css={{
+            position: 'relative',
+            order: 1,
+            marginX: '$5',
+            '@md': { marginX: 0, marginBottom: '-5vw' },
+            '@xl': { order: 2, marginBottom: 0 },
+          }}
+        >
           <StyledImage
             src={avatar}
             alt="Elia's avatar"
@@ -135,7 +142,7 @@ const Home: NextPage = () => {
               objectFit: 'cover',
               objectPosition: 'center top',
               '@md': {
-                objectPosition: '80% 50%',
+                objectPosition: '90% 50%',
                 objectFit: 'contain',
               },
             }}
@@ -164,7 +171,6 @@ const Home: NextPage = () => {
           name: 'shetani oHG',
         }}
       />
-      <script type="application/ld+json"></script>
     </Fragment>
   )
 }
