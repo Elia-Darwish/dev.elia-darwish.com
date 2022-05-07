@@ -12,7 +12,7 @@ import '@fontsource/lato/900.css'
 
 import type { AppProps } from 'next/app'
 import { LazyMotion, domAnimation } from 'framer-motion'
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
 import Script from 'next/script'
 import Head from 'next/head'
 
@@ -21,6 +21,12 @@ import { Box, Grid } from 'components/primitives'
 import { globalStyles, theme } from 'stitches.config'
 import { Footer } from 'components/Footer'
 import { useFixVh } from 'hooks/useFixVh'
+
+// eslint-disable-next-line no-console
+console.log(
+  "%cI'm going to hunt you down, and inspect your site!",
+  'font-family: Lato, sans-serif; font-size: 2rem; color: #3867D6',
+)
 
 function MyApp({ Component, pageProps }: AppProps) {
   globalStyles()
