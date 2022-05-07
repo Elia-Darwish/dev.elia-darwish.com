@@ -17,6 +17,7 @@ const NotFound: NextPage = () => {
           color: 'transparent',
           backgroundColor: '$primary-500',
           backgroundImage: 'url(/images/bg/bg-dark.svg)',
+          backgroundSize: '12px',
           backgroundClip: 'text',
         }}
       >
