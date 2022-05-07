@@ -28,7 +28,7 @@ const ThemeSwitch = styled(Button, {
 const AnimatedThemeSwitch = m(ThemeSwitch)
 
 export function Nav() {
-  const { toggleColorTheme } = useColorTheme()
+  const { toggleTheme } = useColorTheme()
 
   return (
     <HStack
@@ -49,7 +49,7 @@ export function Nav() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => {
-          toggleColorTheme()
+          toggleTheme()
         }}
       />
     </HStack>

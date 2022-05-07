@@ -12,15 +12,14 @@ import '@fontsource/lato/900.css'
 
 import type { AppProps } from 'next/app'
 import { LazyMotion, domAnimation } from 'framer-motion'
-import { Fragment, useEffect } from 'react'
-import Script from 'next/script'
 import Head from 'next/head'
 
 import { Nav } from 'components/Nav'
 import { Box, Grid } from 'components/primitives'
-import { globalStyles, theme } from 'stitches.config'
+import { globalStyles } from 'stitches.config'
 import { Footer } from 'components/Footer'
 import { useFixVh } from 'hooks/useFixVh'
+import { ThemeProvider } from 'state/theme'
 
 // eslint-disable-next-line no-console
 console.log(
@@ -33,7 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   useFixVh()
 
   return (
-    <Fragment>
+    <ThemeProvider>
       <Head>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -62,7 +61,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Footer />
         </Grid>
       </LazyMotion>
-    </Fragment>
+    </ThemeProvider>
   )
 }
 

@@ -1,4 +1,4 @@
-import { proxy, subscribe, useSnapshot } from 'valtio'
+import { createContext, PropsWithChildren, useContext, useState } from 'react'
 import { useCallback } from 'react'
 
 import { darkTheme, Themes } from 'stitches.config'
@@ -16,9 +16,10 @@ export enum ColorThemeStatus {
 export interface ColorThemeState {
   currentTheme: Themes
   status: ColorThemeStatus
+  toggleTheme: VoidFunction
 }
 
-const getInitialState = (): ColorThemeState => {
+const getInitialState = (): Omit<ColorThemeState, 'toggleTheme'> => {
   if (!isBrowser) {
     return {
       currentTheme: Themes.light,
@@ -60,35 +61,47 @@ const getInitialState = (): ColorThemeState => {
   }
 }
 
-export const colorThemeState = proxy<ColorThemeState>(getInitialState())
-
-subscribe(colorThemeState, () => {
-  if (colorThemeState.currentTheme === Themes.dark) {
-    document.body.classList.add(darkTheme)
-  } else {
-    document.body.classList.remove(darkTheme)
-  }
-
-  if (colorThemeState.status !== ColorThemeStatus.INITIALIZED_FROM_DEFAULT_VALUE) {
-    window.localStorage.setItem(KEY, colorThemeState.currentTheme)
-  }
-})
+const ColorThemeContext = createContext<ColorThemeState | null>(null)
 
 export function useColorTheme() {
-  const state = useSnapshot(colorThemeState)
+  const state = useContext(ColorThemeContext)
 
-  const toggleColorTheme = useCallback((): void => {
-    colorThemeState.status = ColorThemeStatus.CHANGED_BY_USER
+  if (!state) throw new Error('useColorTheme must be used within a ColorThemeProvider')
 
-    if (colorThemeState.currentTheme === Themes.dark) {
-      colorThemeState.currentTheme = Themes.light
-    } else {
-      colorThemeState.currentTheme = Themes.dark
-    }
+  return state
+}
+
+export function ThemeProvider({ children }: PropsWithChildren<unknown>) {
+  const [state, setState] = useState(getInitialState)
+
+  const toggleTheme = useCallback(() => {
+    setState((prevState) => {
+      if (prevState.currentTheme === Themes.light) {
+        document.body.classList.add(darkTheme)
+
+        return {
+          ...prevState,
+          currentTheme: Themes.dark,
+        }
+      } else {
+        document.body.classList.remove(darkTheme)
+
+        return {
+          ...prevState,
+          currentTheme: Themes.light,
+        }
+      }
+    })
   }, [])
 
-  return {
-    ...state,
-    toggleColorTheme,
-  }
+  return (
+    <ColorThemeContext.Provider
+      value={{
+        ...state,
+        toggleTheme,
+      }}
+    >
+      {children}
+    </ColorThemeContext.Provider>
+  )
 }
