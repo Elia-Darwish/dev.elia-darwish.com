@@ -1,9 +1,7 @@
 import { NextPage } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
-import img from 'public/images/psst.png'
 
-import { Anchor, Box, Center, Grid } from 'components/primitives'
+import { Anchor, Center } from 'components/primitives'
 import { Heading, Text } from 'components/typography'
 
 const NotFound: NextPage = () => {
