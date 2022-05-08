@@ -164,5 +164,5 @@ export const HStack = StyledHStack
 export const VStack = StyledVStack
 export const Grid = StyledGrid
 export const Icon = StyledIcon
-export const Anchor = StyledAnchor
+export const AnchorPrimitive = StyledAnchor
 export const ButtonPrimitive = StyledButton

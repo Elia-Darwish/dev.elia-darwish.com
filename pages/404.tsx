@@ -1,8 +1,9 @@
 import { NextPage } from 'next'
 import Link from 'next/link'
 
-import { Anchor, Center } from 'components/primitives'
+import { Center } from 'components/primitives'
 import { Heading, Text } from 'components/typography'
+import { Anchor } from 'components/Anchor'
 
 const NotFound: NextPage = () => {
   return (

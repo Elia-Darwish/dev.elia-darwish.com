@@ -1,11 +1,11 @@
 import { ComponentProps, forwardRef } from 'react'
 import { m, Variants } from 'framer-motion'
 
-import { Anchor, Box } from './primitives'
+import { AnchorPrimitive, Box } from './primitives'
 
 import { styled } from 'stitches.config'
 
-const StyledButton = styled(Anchor, {
+const StyledButton = styled(AnchorPrimitive, {
   display: 'inline-block',
 
   position: 'relative',

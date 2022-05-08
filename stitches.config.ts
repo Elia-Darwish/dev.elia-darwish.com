@@ -192,7 +192,7 @@ export const { styled, getCssText, config, createTheme, css, globalCss, keyframe
         xl: '0 20px 25px -5px hsl($colors$hsl-black / 0.1), 0 10px 10px -5px hsl($colors$hsl-black / 0.04)',
         '2xl': '0 25px 50px -12px hsl($colors$hsl-black / 0.25)',
         inner: 'inset 0 2px 4px 0 hsl($colors$hsl-black / 0.06)',
-        outline: '0 0 0 2px $colors$primary-500',
+        outline: '0 0 0 3px $colors$primary-500',
         none: 'none',
       },
       transitions: {

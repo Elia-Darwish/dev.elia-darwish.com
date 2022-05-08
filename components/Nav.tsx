@@ -48,6 +48,7 @@ export function Nav() {
         initial={{ scale: 1 }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
+        whileFocus={{ scale: 1.05 }}
         onClick={() => {
           toggleTheme()
         }}
