@@ -12,6 +12,18 @@ const StyledBox = styled('div', {
   },
 })
 
+const StyledSpan = styled('span', {
+  transition: '$background',
+
+  variants: {
+    isolate: {
+      true: {
+        isolation: 'isolate',
+      },
+    },
+  },
+})
+
 const StyledHStack = styled(StyledBox, {
   display: 'flex',
 })
@@ -163,6 +175,7 @@ const StyledButton = styled('button', {
 })
 
 export const Box = StyledBox
+export const Span = StyledSpan
 export const Center = StyledCenter
 export const HStack = StyledHStack
 export const VStack = StyledVStack

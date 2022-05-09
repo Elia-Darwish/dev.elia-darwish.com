@@ -9,6 +9,7 @@ import { Box, Grid } from 'components/primitives'
 import { Heading, Text } from 'components/typography'
 import { Button } from 'components/Button'
 import { styled } from 'stitches.config'
+import { Anchor } from 'components/Anchor'
 
 const StyledImage = styled(Image)
 

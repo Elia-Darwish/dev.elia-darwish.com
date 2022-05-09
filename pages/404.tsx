@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Link from 'next/link'
 
-import { Center } from 'components/primitives'
+import { AnchorPrimitive, Center } from 'components/primitives'
 import { Heading, Text } from 'components/typography'
 import { Anchor } from 'components/Anchor'
 
@@ -37,7 +37,7 @@ const NotFound: NextPage = () => {
       <Text size={{ '@initial': 'md', '@md': 'lg' }} css={{ textAlign: 'center', maxWidth: '25ch', marginTop: '$8' }}>
         How about you head back{' '}
         <Link href="/" passHref>
-          <Anchor css={{ color: '$primary-500' }}>home</Anchor>
+          <Anchor>home</Anchor>
         </Link>{' '}
         and try again?
       </Text>

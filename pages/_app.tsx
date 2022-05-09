@@ -24,7 +24,7 @@ import { ThemeProvider } from 'state/theme'
 // eslint-disable-next-line no-console
 console.log(
   "%cI'm going to hunt you down, and inspect your site!",
-  'font-family: Lato, sans-serif; font-size: 2rem; color: #3867D6',
+  'font-family: Lato, sans-serif; font-size: 1.5rem; color: #3867D6',
 )
 
 function MyApp({ Component, pageProps }: AppProps) {

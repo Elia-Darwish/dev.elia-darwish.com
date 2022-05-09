@@ -1,6 +1,5 @@
-import { HStack } from './primitives'
-import { Anchor } from './Anchor'
-
+import { HStack } from 'components/primitives'
+import { Anchor } from 'components/Anchor'
 import { Text } from 'components/typography'
 
 export function Footer() {

@@ -1,8 +1,9 @@
-import { ComponentProps, forwardRef } from 'react'
+import { ComponentProps, forwardRef, MouseEventHandler } from 'react'
 import { m, useAnimation } from 'framer-motion'
 
 import { styled } from 'stitches.config'
-import { AnchorPrimitive, Box } from 'components/primitives'
+import { AnchorPrimitive, Span } from 'components/primitives'
+import { composeEventHandlers } from 'utils'
 
 const StyledAnchor = styled(AnchorPrimitive, {
   position: 'relative',
@@ -14,7 +15,7 @@ const StyledAnchor = styled(AnchorPrimitive, {
   variants: {
     variant: {
       link: {
-        color: '$primary',
+        color: '$primary-500',
       },
       nav: {
         color: '$text',
@@ -32,42 +33,37 @@ const StyledAnchor = styled(AnchorPrimitive, {
 })
 
 const AnimatedAnchor = m(StyledAnchor)
-const AnimatedBox = m(Box)
+const AnimatedSpan = m(Span)
 
 export const Anchor = forwardRef<HTMLAnchorElement, Omit<ComponentProps<typeof AnimatedAnchor>, 'ref'>>(function Anchor(
-  { children, ...props },
+  { children, onMouseEnter, onMouseLeave, onFocus, onBlur, ...props },
   ref,
 ) {
   const control = useAnimation()
 
+  function handleMouseEnter() {
+    control.start({
+      clipPath: ['inset(0% 100% 0% 0%)', 'inset(0% 0% 0% 0%)'],
+    })
+  }
+
+  function handleMouseLeave() {
+    control.start({
+      clipPath: ['inset(0% 0% 0% 0%)', 'inset(0% 0% 0% 100%)'],
+    })
+  }
+
   return (
     <AnimatedAnchor
-      onMouseEnter={() => {
-        control.start({
-          clipPath: ['inset(0% 100% 0% 0%)', 'inset(0% 0% 0% 0%)'],
-        })
-      }}
-      onFocus={() => {
-        control.start({
-          clipPath: ['inset(0% 100% 0% 0%)', 'inset(0% 0% 0% 0%)'],
-        })
-      }}
-      onMouseLeave={() => {
-        control.start({
-          clipPath: ['inset(0% 0% 0% 0%)', 'inset(0% 0% 0% 100%)'],
-        })
-      }}
-      onBlur={() => {
-        control.start({
-          clipPath: ['inset(0% 0% 0% 0%)', 'inset(0% 0% 0% 100%)'],
-        })
-      }}
+      onMouseEnter={composeEventHandlers(onMouseEnter, handleMouseEnter)}
+      onFocus={composeEventHandlers(onFocus, handleMouseEnter)}
+      onMouseLeave={composeEventHandlers(onMouseLeave, handleMouseLeave)}
+      onBlur={composeEventHandlers(onBlur, handleMouseLeave)}
       {...props}
       ref={ref}
     >
       {children}
-      <Box
-        as="span"
+      <AnimatedSpan
         css={{
           position: 'absolute',
           bottom: 0,
@@ -78,7 +74,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, Omit<ComponentProps<typeof A
           width: '$full',
         }}
       >
-        <AnimatedBox
+        <AnimatedSpan
           animate={control}
           css={{
             display: 'block',
@@ -94,7 +90,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, Omit<ComponentProps<typeof A
             duration: 0.5,
           }}
         />
-      </Box>
+      </AnimatedSpan>
     </AnimatedAnchor>
   )
 })
