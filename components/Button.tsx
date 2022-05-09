@@ -17,12 +17,12 @@ const StyledButton = styled(AnchorPrimitive, {
   whiteSpace: 'nowrap',
   lineHeight: '$none',
 
-  paddingX: '$6',
+  paddingX: '$8',
   paddingY: '$3',
 
   color: '$primary-500',
 
-  borderRadius: '$sm',
+  borderRadius: '$xs',
   border: '1px solid $primary-500',
 
   overflow: 'hidden',
@@ -73,13 +73,11 @@ export const Button = forwardRef<HTMLButtonElement, Omit<ComponentProps<typeof M
 ) {
   return (
     <MotionButton
-      href="mailto:darwish.elia@gmail.com"
-      target="_blank"
-      rel="noreferrer"
       variants={buttonVariants}
       initial="idle"
       whileHover="hover"
       whileTap="tap"
+      whileFocus="hover"
       ref={ref}
       {...props}
     >
@@ -93,12 +91,16 @@ export const Button = forwardRef<HTMLButtonElement, Omit<ComponentProps<typeof M
           position: 'absolute',
           inset: '-$2',
           backgroundColor: '$primary-500',
-          backgroundImage: 'url(/images/bg/bg-dark.svg)',
+          backgroundImage: 'url(/images/bg/bg-dark-animated.svg)',
           backgroundSize: '12px',
           backgroundRepeat: 'repeat',
 
           color: '$white',
           overflow: 'hidden',
+
+          '@reduce-motion': {
+            backgroundImage: 'url(/images/bg/bg-dark.svg)',
+          },
         }}
       >
         <MotionBox

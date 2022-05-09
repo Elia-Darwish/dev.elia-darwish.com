@@ -31,6 +31,7 @@ const Home: NextPage = () => {
           gridTemplateRows: '1.2fr 1fr',
           '@xl': { gridCols: 2, gridRows: 1, gap: '$8', padding: '$8' },
         }}
+        isolate
       >
         <Box
           css={{
@@ -54,20 +55,24 @@ const Home: NextPage = () => {
             <Box
               css={{
                 position: 'absolute',
-                bottom: '$3',
+                bottom: '0.25em',
                 left: 'calc(100% + $3)',
-                height: '$2',
+
+                height: '$3',
                 width: '$24',
-                backgroundColor: '$primary-500',
-                backgroundImage: 'url(/images/bg/bg-dark.svg)',
-                backgroundSize: '12px',
-                backgroundPosition: '-1px -1px',
+
+                backgroundImage: 'url(/images/bg/bg-wiggle-wide-6-primary-animated.svg)',
+                backgroundSize: '$sizes$6',
+                backgroundRepeat: 'repeat-x',
+
                 zIndex: '$underlay',
-                '@xl': {
-                  bottom: '$3_5',
+
+                '@md': {
+                  height: '$2',
                 },
-                '@6xl': {
-                  bottom: '$6',
+
+                '@reduce-motion': {
+                  backgroundImage: 'url(/images/bg/bg-dark.svg)',
                 },
               }}
             />
@@ -118,7 +123,14 @@ const Home: NextPage = () => {
               Digital painting, dog psychology, handcrafts and photography are some of the things I enjoy doing on the
               side.
             </Text>
-            <Button css={{ marginTop: '$4', '@md': { marginTop: '$8' } }}>get in touch!</Button>
+            <Button
+              href="mailto:darwish.elia@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+              css={{ marginTop: '$4', '@md': { marginTop: '$8' } }}
+            >
+              hit me up!
+            </Button>
           </Box>
         </Box>
 
@@ -127,6 +139,7 @@ const Home: NextPage = () => {
             position: 'relative',
             order: 1,
             marginX: '$5',
+            zIndex: '$underlay',
             '@md': { marginX: 0, marginBottom: '-5vw' },
             '@xl': { order: 2, marginBottom: 0 },
           }}

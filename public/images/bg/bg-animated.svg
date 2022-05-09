@@ -1,0 +1,18 @@
+<svg id="eY6vMNQ1Szf1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" width="24" height="24">
+  <style>
+    <![CDATA[#eY6vMNQ1Szf3_to {animation: eY6vMNQ1Szf3_to__to 1200ms linear infinite normal forwards;}@keyframes eY6vMNQ1Szf3_to__to {0% {transform: translate(2.8536px, 3.8536px);}100% {transform: translate(14.8536px, 15.8536px);}}]]>
+  </style>
+
+  <g clip-path="url(#eY6vMNQ1Szf7)">
+    <g id="eY6vMNQ1Szf3_to" transform="translate(2.8536,3.8536)">
+      <g transform="translate(-2.8536,-3.8536)">
+        <line x1="23.3536" y1="-16.6464" x2="-14.6464" y2="21.3536" stroke="#898989" stroke-opacity="0.2" />
+        <line x1="37.3536" y1="-6.64645" x2="-7.64645" y2="38.3536" stroke="#898989" stroke-opacity="0.2" />
+        <line x1="13.3536" y1="-30.6464" x2="-31.6464" y2="14.3536" stroke="#898989" stroke-opacity="0.2" />
+      </g>
+    </g>
+    <clipPath id="eY6vMNQ1Szf7">
+      <rect width="24" height="24" fill="white" />
+    </clipPath>
+  </g>
+</svg>

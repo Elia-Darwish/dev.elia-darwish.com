@@ -230,6 +230,7 @@ export const { styled, getCssText, config, createTheme, css, globalCss, keyframe
       '4xl': '(min-width: 1792px)',
       '5xl': '(min-width: 1920px)',
       '6xl': '(min-width: 2560px)',
+      'reduce-motion': '(prefers-reduced-motion: reduce)',
     },
     utils: {
       paddingX: (value: PropertyValue<'padding'>) => ({

@@ -50,6 +50,10 @@ const StyledAnchor = styled('a', {
   lineHeight: '$body',
 
   color: 'inherit',
+
+  '&:focus': {
+    outline: 'none',
+  },
 })
 
 const StyledIcon = styled('span', {

@@ -9,15 +9,19 @@ const NotFound: NextPage = () => {
   return (
     <Center css={{ size: '$full', placeItems: 'center' }}>
       <Heading
-        weight="bold"
+        weight="black"
         css={{
           fontSize: '25vmin',
           fontFamily: '$primary',
           color: 'transparent',
           backgroundColor: '$primary-500',
-          backgroundImage: 'url(/images/bg/bg-dark.svg)',
+          backgroundImage: 'url(/images/bg/bg-dark-animated.svg)',
           backgroundSize: '12px',
           backgroundClip: 'text',
+
+          '@reduce-motion': {
+            backgroundImage: 'url(/images/bg/bg-dark.svg)',
+          },
         }}
       >
         404
@@ -31,9 +35,9 @@ const NotFound: NextPage = () => {
       </Heading>
 
       <Text size={{ '@initial': 'md', '@md': 'lg' }} css={{ textAlign: 'center', maxWidth: '25ch', marginTop: '$8' }}>
-        How about you head over to the{' '}
+        How about you head back{' '}
         <Link href="/" passHref>
-          <Anchor css={{ color: '$primary-500' }}>Homepage</Anchor>
+          <Anchor css={{ color: '$primary-500' }}>home</Anchor>
         </Link>{' '}
         and try again?
       </Text>
