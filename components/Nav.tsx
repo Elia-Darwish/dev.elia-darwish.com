@@ -1,8 +1,8 @@
 import { m } from 'framer-motion'
+import Link from 'next/link'
 
-import { Logo } from './Logo'
-import { ButtonPrimitive as Button, HStack } from './primitives'
-
+import { Logo } from 'components/Logo'
+import { AnchorPrimitive, ButtonPrimitive as Button, HStack } from 'components/primitives'
 import { styled } from 'stitches.config'
 import { useColorTheme } from 'state/theme'
 
@@ -41,7 +41,11 @@ export function Nav() {
         '@md': { paddingX: '$12' },
       }}
     >
-      <Logo css={{ size: '$18', color: '$heading', marginLeft: '-$3', '@md': { size: '$24' } }} />
+      <Link href="/" passHref>
+        <AnchorPrimitive>
+          <Logo css={{ size: '$18', color: '$heading', marginLeft: '-$3', '@md': { size: '$24' } }} />
+        </AnchorPrimitive>
+      </Link>
 
       <AnimatedThemeSwitch
         aria-label="switch theme"
