@@ -1,64 +1,26 @@
+import Cookies from 'js-cookie'
 import { createContext, PropsWithChildren, useContext, useState } from 'react'
 import { useCallback } from 'react'
 
+import { Box } from 'components/primitives'
 import { darkTheme, Themes } from 'stitches.config'
 import { isBrowser } from 'utils'
 
 const KEY = 'theme'
 
-export enum ColorThemeStatus {
-  INITIALIZING = 'INITIALIZING',
-  INITIALIZED_FROM_DEFAULT_VALUE = 'INITIALIZED_FROM_DEFAULT_VALUE',
-  INITIALIZED_FROM_STORAGE = 'INITIALIZED_FROM_STORAGE',
-  CHANGED_BY_USER = 'CHANGED_BY_USER',
-}
-
 export interface ColorThemeState {
   currentTheme: Themes
-  status: ColorThemeStatus
   toggleTheme: VoidFunction
 }
 
-const getInitialState = (): Omit<ColorThemeState, 'toggleTheme'> => {
+function getInitialState() {
   if (!isBrowser) {
-    return {
-      currentTheme: Themes.light,
-      status: ColorThemeStatus.INITIALIZING,
-    }
+    return Themes.light
   }
 
-  const valueInStorage = window.localStorage.getItem(KEY)
+  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
 
-  switch (valueInStorage) {
-    case Themes.light: {
-      return {
-        currentTheme: Themes.light,
-        status: ColorThemeStatus.INITIALIZED_FROM_STORAGE,
-      }
-    }
-
-    case Themes.dark: {
-      document.body.classList.add(darkTheme)
-
-      return {
-        currentTheme: Themes.dark,
-        status: ColorThemeStatus.INITIALIZED_FROM_STORAGE,
-      }
-    }
-
-    default: {
-      const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-
-      if (prefersDarkMode) {
-        document.body.classList.add(darkTheme)
-      }
-
-      return {
-        currentTheme: prefersDarkMode ? Themes.dark : Themes.light,
-        status: ColorThemeStatus.INITIALIZED_FROM_DEFAULT_VALUE,
-      }
-    }
-  }
+  return prefersDarkMode ? Themes.dark : Themes.light
 }
 
 const ColorThemeContext = createContext<ColorThemeState | null>(null)
@@ -71,37 +33,36 @@ export function useColorTheme() {
   return state
 }
 
-export function ThemeProvider({ children }: PropsWithChildren<unknown>) {
-  const [state, setState] = useState(getInitialState)
+interface ThemeProviderProps {
+  initial?: Themes
+}
+
+export function ThemeProvider({ children, initial }: PropsWithChildren<ThemeProviderProps>) {
+  const [currentTheme, setCurrentTheme] = useState(() => initial ?? getInitialState())
 
   const toggleTheme = useCallback(() => {
-    setState((prevState) => {
-      if (prevState.currentTheme === Themes.light) {
-        document.body.classList.add(darkTheme)
-
-        return {
-          ...prevState,
-          currentTheme: Themes.dark,
-        }
-      } else {
-        document.body.classList.remove(darkTheme)
-
-        return {
-          ...prevState,
-          currentTheme: Themes.light,
-        }
-      }
+    setCurrentTheme((prevState) => {
+      const nextTheme = prevState === Themes.light ? Themes.dark : Themes.light
+      Cookies.set(KEY, nextTheme)
+      return nextTheme
     })
   }, [])
 
   return (
     <ColorThemeContext.Provider
       value={{
-        ...state,
+        currentTheme,
         toggleTheme,
       }}
     >
-      {children}
+      <Box
+        className={currentTheme === Themes.dark ? darkTheme : ''}
+        css={{
+          size: '$full',
+        }}
+      >
+        {children}
+      </Box>
     </ColorThemeContext.Provider>
   )
 }

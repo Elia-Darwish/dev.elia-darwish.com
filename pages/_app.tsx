@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   useFixVh()
 
   return (
-    <ThemeProvider>
+    <ThemeProvider initial={pageProps.theme}>
       <Head>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -50,6 +50,13 @@ function MyApp({ Component, pageProps }: AppProps) {
             overflow: 'hidden',
             gridCols: 1,
             gridTemplateRows: 'max-content 1fr max-content',
+
+            backgroundColor: '$bg',
+            backgroundImage: 'url(/images/bg/bg.svg)',
+            backgroundSize: '12px',
+            backgroundRepeat: 'repeat',
+
+            transition: '$color',
           }}
         >
           <Nav />
