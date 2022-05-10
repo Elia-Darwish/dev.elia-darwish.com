@@ -34,7 +34,7 @@ export function useColorTheme() {
 }
 
 interface ThemeProviderProps {
-  initial?: Themes
+  initial: Themes | null
 }
 
 export function ThemeProvider({ children, initial }: PropsWithChildren<ThemeProviderProps>) {
