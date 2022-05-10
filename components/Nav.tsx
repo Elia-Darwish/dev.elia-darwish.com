@@ -42,7 +42,7 @@ export function Nav() {
       }}
     >
       <Link href="/" passHref>
-        <AnchorPrimitive>
+        <AnchorPrimitive title="home">
           <Logo css={{ size: '$18', color: '$heading', marginLeft: '-$3', '@md': { size: '$24' } }} />
         </AnchorPrimitive>
       </Link>
