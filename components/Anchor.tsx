@@ -1,4 +1,4 @@
-import { ComponentProps, forwardRef, MouseEventHandler } from 'react'
+import { ComponentProps, forwardRef, MouseEventHandler, useRef } from 'react'
 import { m, useAnimation } from 'framer-motion'
 
 import { styled } from 'stitches.config'
@@ -39,16 +39,19 @@ export const Anchor = forwardRef<HTMLAnchorElement, Omit<ComponentProps<typeof A
   { children, onMouseEnter, onMouseLeave, onFocus, onBlur, ...props },
   ref,
 ) {
+  const animation = useRef<Promise<unknown>>()
   const control = useAnimation()
 
-  function handleMouseEnter() {
-    control.start({
+  async function handleMouseEnter() {
+    await animation.current
+    animation.current = control.start({
       clipPath: ['inset(0% 100% 0% 0%)', 'inset(0% 0% 0% 0%)'],
     })
   }
 
-  function handleMouseLeave() {
-    control.start({
+  async function handleMouseLeave() {
+    await animation.current
+    animation.current = control.start({
       clipPath: ['inset(0% 0% 0% 0%)', 'inset(0% 0% 0% 100%)'],
     })
   }
