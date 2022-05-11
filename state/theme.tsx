@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import { createContext, PropsWithChildren, useContext, useState } from 'react'
+import { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react'
 import { useCallback } from 'react'
 
 import { Box } from 'components/primitives'
@@ -39,6 +39,16 @@ interface ThemeProviderProps {
 
 export function ThemeProvider({ children, initial }: PropsWithChildren<ThemeProviderProps>) {
   const [currentTheme, setCurrentTheme] = useState(() => initial ?? getInitialState())
+
+  useEffect(() => {
+    if (!initial) {
+      const storedTheme = Cookies.get(KEY)
+
+      if (storedTheme) {
+        setCurrentTheme(storedTheme as Themes)
+      }
+    }
+  }, [initial])
 
   const toggleTheme = useCallback(() => {
     setCurrentTheme((prevState) => {
