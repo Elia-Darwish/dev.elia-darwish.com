@@ -80,7 +80,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, Omit<ComponentProps<typeof A
             display: 'block',
             size: '$full',
 
-            backgroundImage: 'url(/images/bg/bg-wiggle-wide-3-primary-animated.svg)',
+            backgroundImage: 'url(/images/bg/bg-wiggle-wide-3-primary-animated-right.svg)',
             backgroundSize: 'contain',
             backgroundRepeat: 'repeat-x',
 

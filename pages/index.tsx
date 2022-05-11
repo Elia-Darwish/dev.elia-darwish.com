@@ -62,7 +62,7 @@ const Home: NextPage = () => {
                 height: '$3',
                 width: '$24',
 
-                backgroundImage: 'url(/images/bg/bg-wiggle-wide-6-primary-animated.svg)',
+                backgroundImage: 'url(/images/bg/bg-wiggle-wide-6-primary-animated-left.svg)',
                 backgroundSize: '$sizes$6',
                 backgroundRepeat: 'repeat-x',
 

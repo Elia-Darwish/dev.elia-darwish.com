@@ -1,0 +1,15 @@
+<svg id="eqMDjkf95Yc1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 36 12" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" width="36" height="12">
+  <style>
+    <![CDATA[#eqMDjkf95Yc3_to {animation: eqMDjkf95Yc3_to__to 3000ms linear infinite normal forwards;}@keyframes eqMDjkf95Yc3_to__to {0% {transform: translate(-1.25px, 6px);}100% {transform: translate(34.75px, 6px);}}]]>
+  </style>
+  <g clip-path="url(#eqMDjkf95Yc5)">
+    <g id="eqMDjkf95Yc3_to" transform="translate(-1.25,6)">
+      <g transform="translate(1.25,-6)">
+        <path d="M-56,3c7.1803,0,12.5656,6,19.7459,6s10.7705-6,17.9508-6s10.77051,6,17.950841,6s10.770459-6,17.950859-6c7.1803,0,10.7705,6,17.9508,6s10.7705-6,17.9508-6" fill="none" stroke="#3867D6" stroke-width="6" />
+      </g>
+    </g>
+    <clipPath id="eqMDjkf95Yc5">
+      <rect width="36" height="12" rx="0" ry="0" fill="#fff" />
+    </clipPath>
+  </g>
+</svg>
