@@ -1,6 +1,6 @@
 <svg id="eqMDjkf95Yc1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 36 12" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" width="36" height="12">
   <style>
-    <![CDATA[#eqMDjkf95Yc3_to {animation: eqMDjkf95Yc3_to__to 3000ms linear infinite normal forwards}@keyframes eqMDjkf95Yc3_to__to { 0% {transform: translate(-1.25px,6px)} 100% {transform: translate(34.75px,6px)}}]]>
+    <![CDATA[#eqMDjkf95Yc3_to {animation: eqMDjkf95Yc3_to__to 3000ms linear infinite normal forwards;}@keyframes eqMDjkf95Yc3_to__to {0% {transform: translate(34.75px, 6px);}100% {transform: translate(-1.25px, 6px);}}]]>
   </style>
   <g clip-path="url(#eqMDjkf95Yc5)">
     <g id="eqMDjkf95Yc3_to" transform="translate(-1.25,6)">
