@@ -87,7 +87,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, Omit<ComponentProps<typeof A
             clipPath: 'inset(0% 100% 0% 0%)',
           }}
           transition={{
-            duration: 0.5,
+            duration: 0.8,
           }}
         />
       </AnimatedSpan>
