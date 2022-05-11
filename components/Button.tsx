@@ -16,6 +16,7 @@ const StyledButton = styled(AnchorPrimitive, {
   fontWeight: '$medium',
   whiteSpace: 'nowrap',
   lineHeight: '$none',
+  textTransform: 'uppercase',
 
   paddingX: '$8',
   paddingY: '$3',
