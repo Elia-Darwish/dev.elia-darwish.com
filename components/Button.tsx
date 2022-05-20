@@ -86,7 +86,8 @@ export const Button = forwardRef<HTMLButtonElement, Omit<ComponentProps<typeof M
       <MotionBox
         variants={outerBoxVariants}
         transition={{
-          duration: 0.5,
+          duration: 0.3,
+          ease: [0.25, 1, 0.5, 1],
         }}
         css={{
           position: 'absolute',
@@ -107,7 +108,8 @@ export const Button = forwardRef<HTMLButtonElement, Omit<ComponentProps<typeof M
         <MotionBox
           variants={innerBoxVariants}
           transition={{
-            duration: 0.5,
+            duration: 0.6,
+            ease: [0.25, 1, 0.5, 1],
           }}
           css={{ size: '$full', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
         >
