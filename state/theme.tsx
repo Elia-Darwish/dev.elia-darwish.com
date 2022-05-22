@@ -53,7 +53,9 @@ export function ThemeProvider({ children, initial }: PropsWithChildren<ThemeProv
   const toggleTheme = useCallback(() => {
     setCurrentTheme((prevState) => {
       const nextTheme = prevState === Themes.light ? Themes.dark : Themes.light
-      Cookies.set(KEY, nextTheme)
+      Cookies.set(KEY, nextTheme, {
+        expires: 365,
+      })
       return nextTheme
     })
   }, [])
