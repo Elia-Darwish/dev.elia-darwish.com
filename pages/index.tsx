@@ -1,6 +1,6 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
+import Image from 'next/future/image'
 import { Fragment } from 'react'
 import { SocialProfileJsonLd } from 'next-seo'
 
@@ -9,7 +9,6 @@ import { Box, Grid } from 'components/primitives'
 import { Heading, Text } from 'components/typography'
 import { Button } from 'components/Button'
 import { styled } from 'stitches.config'
-import { Anchor } from 'components/Anchor'
 
 const StyledImage = styled(Image)
 
@@ -148,11 +147,13 @@ const Home: NextPage = () => {
           <StyledImage
             src={avatar}
             alt="Elia's avatar"
-            layout="fill"
             sizes="70vw, (min-width: 768px) 60vw, (min-width: 1280px) 50vw"
             priority
             quality={80}
             css={{
+              position: 'absolute',
+              inset: 0,
+              size: '$full',
               objectFit: 'cover',
               objectPosition: 'center top',
               '@md': {
