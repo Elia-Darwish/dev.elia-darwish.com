@@ -148,7 +148,6 @@ const Home: NextPage = () => {
             src={avatar}
             alt="Elia's avatar"
             sizes="70vw, (min-width: 768px) 60vw, (min-width: 1280px) 50vw"
-            priority
             quality={80}
             css={{
               position: 'absolute',
