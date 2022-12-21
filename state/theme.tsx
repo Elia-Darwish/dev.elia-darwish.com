@@ -1,80 +1,18 @@
-import Cookies from 'js-cookie'
-import { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react'
-import { useCallback } from 'react'
+import { darkTheme } from 'stitches.config'
 
-import { Box } from 'components/primitives'
-import { darkTheme, Themes } from 'stitches.config'
-import { isBrowser } from 'utils'
+export const KEY = 'theme'
 
-const KEY = 'theme'
-
-export interface ColorThemeState {
-  currentTheme: Themes
-  toggleTheme: VoidFunction
+export enum Themes {
+  dark = 'dark',
+  light = 'light',
 }
 
-function getInitialState() {
-  if (!isBrowser) {
-    return Themes.light
+export function toggleTheme() {
+  if (document.body.classList.contains(darkTheme.className)) {
+    document.body.classList.remove(darkTheme.className)
+    localStorage.setItem(KEY, Themes.light)
+  } else {
+    document.body.classList.add(darkTheme.className)
+    localStorage.setItem(KEY, Themes.dark)
   }
-
-  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-
-  return prefersDarkMode ? Themes.dark : Themes.light
-}
-
-const ColorThemeContext = createContext<ColorThemeState | null>(null)
-
-export function useColorTheme() {
-  const state = useContext(ColorThemeContext)
-
-  if (!state) throw new Error('useColorTheme must be used within a ColorThemeProvider')
-
-  return state
-}
-
-interface ThemeProviderProps {
-  initial: Themes | null
-}
-
-export function ThemeProvider({ children, initial }: PropsWithChildren<ThemeProviderProps>) {
-  const [currentTheme, setCurrentTheme] = useState(() => initial ?? getInitialState())
-
-  useEffect(() => {
-    if (!initial) {
-      const storedTheme = Cookies.get(KEY)
-
-      if (storedTheme) {
-        setCurrentTheme(storedTheme as Themes)
-      }
-    }
-  }, [initial])
-
-  const toggleTheme = useCallback(() => {
-    setCurrentTheme((prevState) => {
-      const nextTheme = prevState === Themes.light ? Themes.dark : Themes.light
-      Cookies.set(KEY, nextTheme, {
-        expires: 365,
-      })
-      return nextTheme
-    })
-  }, [])
-
-  return (
-    <ColorThemeContext.Provider
-      value={{
-        currentTheme,
-        toggleTheme,
-      }}
-    >
-      <Box
-        className={currentTheme === Themes.dark ? darkTheme : ''}
-        css={{
-          size: '$full',
-        }}
-      >
-        {children}
-      </Box>
-    </ColorThemeContext.Provider>
-  )
 }

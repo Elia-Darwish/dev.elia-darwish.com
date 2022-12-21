@@ -318,6 +318,13 @@ export const globalStyles = globalCss({
     width: '$vw',
     height: '$vh',
     overflow: 'hidden',
+
+    backgroundColor: '$bg',
+    backgroundImage: 'url(/images/bg/bg.svg)',
+    backgroundSize: '12px',
+    backgroundRepeat: 'repeat',
+
+    transition: '$color',
   },
 
   '*, *::before, *::after': {
@@ -342,8 +349,3 @@ export const globalStyles = globalCss({
     overflow: 'hidden',
   },
 })
-
-export enum Themes {
-  dark = 'dark',
-  light = 'light',
-}

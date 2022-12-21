@@ -4,15 +4,10 @@ import Link from 'next/link'
 import { Logo } from 'components/Logo'
 import { AnchorPrimitive, ButtonPrimitive as Button, HStack } from 'components/primitives'
 import { styled } from 'stitches.config'
-import { useColorTheme } from 'state/theme'
+import { toggleTheme } from 'state/theme'
 
 const ThemeSwitch = styled(Button, {
   size: '$10',
-
-  backgroundColor: '$bg',
-  backgroundImage: 'url(/images/buttons/bg.svg)',
-  backgroundSize: '12px',
-  backgroundRepeat: 'repeat',
 
   border: '2px solid $text',
   borderRadius: '$lg',
@@ -28,8 +23,6 @@ const ThemeSwitch = styled(Button, {
 const AnimatedThemeSwitch = m(ThemeSwitch)
 
 export function Nav() {
-  const { toggleTheme } = useColorTheme()
-
   return (
     <HStack
       as="nav"
@@ -51,9 +44,7 @@ export function Nav() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         whileFocus={{ scale: 1.05 }}
-        onClick={() => {
-          toggleTheme()
-        }}
+        onClick={toggleTheme}
       />
     </HStack>
   )
