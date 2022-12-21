@@ -41,11 +41,9 @@ export function Nav() {
         '@md': { paddingX: '$12' },
       }}
     >
-      <Link href="/" passHref>
-        <AnchorPrimitive title="home">
-          <Logo css={{ size: '$18', color: '$heading', marginLeft: '-$3', '@md': { size: '$24' } }} />
-        </AnchorPrimitive>
-      </Link>
+      <AnchorPrimitive as={Link} href="/" title="home">
+        <Logo css={{ size: '$18', color: '$heading', marginLeft: '-$3', '@md': { size: '$24' } }} />
+      </AnchorPrimitive>
 
       <AnimatedThemeSwitch
         aria-label="switch theme"

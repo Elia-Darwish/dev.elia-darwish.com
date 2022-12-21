@@ -1,15 +1,3 @@
-import '@fontsource/raleway/300.css'
-import '@fontsource/raleway/400.css'
-import '@fontsource/raleway/500.css'
-import '@fontsource/raleway/700.css'
-import '@fontsource/raleway/900.css'
-
-import '@fontsource/lato/100.css'
-import '@fontsource/lato/300.css'
-import '@fontsource/lato/400.css'
-import '@fontsource/lato/700.css'
-import '@fontsource/lato/900.css'
-
 import type { AppProps } from 'next/app'
 import { LazyMotion, domAnimation } from 'framer-motion'
 import Head from 'next/head'

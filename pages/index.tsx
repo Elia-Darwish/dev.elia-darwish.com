@@ -1,6 +1,6 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import { Fragment } from 'react'
 import { SocialProfileJsonLd } from 'next-seo'
 
@@ -183,7 +183,7 @@ const Home: NextPage = () => {
         ]}
         worksFor={{
           '@type': 'Organization',
-          name: 'shetani oHG',
+          name: 'img.ly GmbH',
         }}
       />
     </Fragment>
