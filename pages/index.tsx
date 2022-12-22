@@ -21,6 +21,7 @@ const Home: NextPage = () => {
           name="description"
           content="Elia Darwish is a web developer with a big passion for Frontend. He enjoy creating and refining accessible user interfaces and UI elements."
         />
+        <link rel="canonical" href="https://elia-darwish.dev/" />
       </Head>
 
       <Grid
