@@ -22,9 +22,13 @@ const StyledAnchor = styled(AnchorPrimitive, {
       nav: {
         color: '$text',
 
-        fontSize: '$base',
+        fontSize: '$sm',
         textTransform: 'uppercase',
         fontWeight: '$normal',
+
+        '@md': {
+          fontSize: '$base',
+        },
       },
     },
   },

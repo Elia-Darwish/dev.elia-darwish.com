@@ -18,7 +18,7 @@ export function Footer() {
         css={{
           justifyContent: 'space-between',
           width: '$full',
-          '@md': { spaceX: '$8', justifyContent: 'flex-start', width: 'max-content' },
+          '@md': { columnGap: '$8', justifyContent: 'flex-start', width: 'max-content' },
         }}
       >
         <Anchor variant="nav" href="https://github.com/Elia-Darwish" target="_blank" rel="noreferrer">
@@ -29,6 +29,9 @@ export function Footer() {
         </Anchor>
         <Anchor variant="nav" href="https://www.linkedin.com/in/elia-darwish/" target="_blank" rel="noreferrer">
           LinkedIn
+        </Anchor>
+        <Anchor variant="nav" href="https://www.polywork.com/elia_darwish" target="_blank" rel="noreferrer">
+          Polywork
         </Anchor>
         <Anchor variant="nav" href="/documents/elia-darwish-cv.pdf" target="_blank" rel="noreferrer">
           CV

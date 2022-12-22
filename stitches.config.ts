@@ -54,8 +54,8 @@ export const { styled, getCssText, config, createTheme, css, globalCss, keyframe
         lg: '1.563rem', // 25.00px
         md: '1.25rem', // 20.00px
         base: '1rem', // 16px
-        sm: '0.8rem', // 12.80px
-        xs: '0.64rem', // 10.24px
+        sm: '0.875rem', // 14px
+        xs: '0.75rem', // 12px
       },
       fontWeights: {
         thin: '100',

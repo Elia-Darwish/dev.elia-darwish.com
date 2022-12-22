@@ -82,7 +82,7 @@ const Home: NextPage = () => {
           <Box
             css={{
               maxWidth: '75ch',
-              spaceY: '$3',
+              rowGap: '$3',
               marginTop: '$3',
               '@md': { marginTop: '$6' },
               '@6xl': { maxWidth: '100ch' },
