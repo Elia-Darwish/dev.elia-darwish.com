@@ -30,7 +30,7 @@ export function Footer() {
         <Anchor variant="nav" href="https://www.linkedin.com/in/elia-darwish/" target="_blank" rel="noreferrer">
           LinkedIn
         </Anchor>
-        <Anchor variant="nav" href="https://www.polywork.com/elia_darwish" target="_blank" rel="noreferrer">
+        <Anchor variant="nav" href="https://poly.me/elia_darwish" target="_blank" rel="noreferrer">
           Polywork
         </Anchor>
         <Anchor variant="nav" href="/documents/elia-darwish-cv.pdf" target="_blank" rel="noreferrer">
