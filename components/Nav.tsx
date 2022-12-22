@@ -27,7 +27,7 @@ export function Nav() {
     <HStack
       as="nav"
       css={{
-        paddingX: '$8',
+        paddingX: '$6',
         paddingY: '$3',
         justifyContent: 'space-between',
         alignItems: 'center',

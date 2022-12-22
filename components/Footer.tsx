@@ -7,7 +7,7 @@ export function Footer() {
     <HStack
       as="footer"
       css={{
-        paddingX: '$8',
+        paddingX: '$6',
         paddingY: '$8',
         justifyContent: 'space-between',
         alignItems: 'center',

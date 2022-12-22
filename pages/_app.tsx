@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         >
           <Nav />
 
-          <Box css={{ paddingX: '$8', size: '$full', overflow: 'hidden', '@md': { paddingX: '$12' } }}>
+          <Box css={{ paddingX: '$6', size: '$full', overflow: 'hidden', '@md': { paddingX: '$12' } }}>
             <Component {...pageProps} />
           </Box>
 
