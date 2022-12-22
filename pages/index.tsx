@@ -191,4 +191,12 @@ const Home: NextPage = () => {
   )
 }
 
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  return {
+    props: {
+      theme: req.cookies.theme ?? null,
+    },
+  }
+}
+
 export default Home
