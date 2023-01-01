@@ -15,7 +15,7 @@ const NotFound: NextPage = () => {
         />
       </Head>
 
-      <div className="flex items-center justify-center">
+      <div className="flex h-full w-full flex-col items-center justify-center">
         <h1 className="bg-primary-500 bg-bg-dark-animated bg-[length:12px] bg-clip-text font-primary text-[25vmin] font-black text-transparent motion-reduce:bg-bg-dark">
           404
         </h1>
