@@ -2,8 +2,6 @@ import { NextPage } from 'next'
 import Link from 'next/link'
 import Head from 'next/head'
 
-import { Center } from 'components/primitives'
-import { Heading, Text } from 'components/typography'
 import { Anchor } from 'components/Anchor'
 
 const NotFound: NextPage = () => {
@@ -17,41 +15,23 @@ const NotFound: NextPage = () => {
         />
       </Head>
 
-      <Center css={{ size: '$full', placeItems: 'center' }}>
-        <Heading
-          weight="black"
-          css={{
-            fontSize: '25vmin',
-            fontFamily: '$primary',
-            color: 'transparent',
-            backgroundColor: '$primary-500',
-            backgroundImage: 'url(/images/bg/bg-dark-animated.svg)',
-            backgroundSize: '12px',
-            backgroundClip: 'text',
-
-            '@reduce-motion': {
-              backgroundImage: 'url(/images/bg/bg-dark.svg)',
-            },
-          }}
-        >
+      <div className="flex items-center justify-center">
+        <h1 className="bg-primary-500 bg-bg-dark-animated bg-[length:12px] bg-clip-text font-primary text-[25vmin] font-black text-transparent motion-reduce:bg-bg-dark">
           404
-        </Heading>
+        </h1>
 
-        <Heading
-          size={{ '@initial': 'lg', '@md': 'xl' }}
-          css={{ textAlign: 'center', maxWidth: '30ch', marginTop: '$5' }}
-        >
+        <h1 className="mt-5 max-w-[30ch] text-center text-lg md:text-xl">
           Dude, you can&apos;t just write stuff in the URL bar and expect them to work!
-        </Heading>
+        </h1>
 
-        <Text size={{ '@initial': 'md', '@md': 'lg' }} css={{ textAlign: 'center', maxWidth: '25ch', marginTop: '$8' }}>
+        <p className="mt-8 max-w-[25ch] text-center text-md md:text-lg">
           How about you head back{' '}
           <Anchor as={Link} href="/">
             home
           </Anchor>{' '}
           and try again?
-        </Text>
-      </Center>
+        </p>
+      </div>
     </>
   )
 }

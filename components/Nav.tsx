@@ -2,43 +2,17 @@ import { m } from 'framer-motion'
 import Link from 'next/link'
 
 import { Logo } from 'components/Logo'
-import { AnchorPrimitive, ButtonPrimitive as Button, HStack } from 'components/primitives'
-import { styled } from 'stitches.config'
 import { toggleTheme } from 'state/theme'
-
-const ThemeSwitch = styled(Button, {
-  size: '$10',
-
-  border: '2px solid $text',
-  borderRadius: '$lg',
-  boxShadow: '$md',
-
-  transition: '$accelerated',
-
-  '&:hover': {
-    transform: 'scale(1.05)',
-  },
-})
-
-const AnimatedThemeSwitch = m(ThemeSwitch)
 
 export function Nav() {
   return (
-    <HStack
-      as="nav"
-      css={{
-        paddingX: '$6',
-        paddingY: '$3',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        '@md': { paddingX: '$12' },
-      }}
-    >
-      <AnchorPrimitive as={Link} href="/" title="home">
-        <Logo css={{ size: '$18', color: '$heading', marginLeft: '-$3', '@md': { size: '$24' } }} />
-      </AnchorPrimitive>
+    <nav className="flex items-center justify-between px-6 py-3 md:px-12">
+      <Link href="/" title="home">
+        <Logo className="-ml-3 h-20 w-20 text-heading md:h-24 md:w-24" />
+      </Link>
 
-      <AnimatedThemeSwitch
+      <m.button
+        className="h-10 w-10 rounded-lg border-2 border-text shadow-md"
         aria-label="switch theme"
         initial={{ scale: 1 }}
         whileHover={{ scale: 1.05 }}
@@ -46,6 +20,6 @@ export function Nav() {
         whileFocus={{ scale: 1.05 }}
         onClick={toggleTheme}
       />
-    </HStack>
+    </nav>
   )
 }

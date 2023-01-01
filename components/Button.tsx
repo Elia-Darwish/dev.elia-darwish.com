@@ -1,42 +1,6 @@
-import { ComponentProps, forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { m, Variants } from 'framer-motion'
-
-import { AnchorPrimitive, Box } from './primitives'
-
-import { styled } from 'stitches.config'
-
-const StyledButton = styled(AnchorPrimitive, {
-  display: 'inline-block',
-
-  position: 'relative',
-  isolation: 'isolate',
-
-  fontFamily: '$accent',
-  fontSize: '$md',
-  fontWeight: '$medium',
-  whiteSpace: 'nowrap',
-  lineHeight: '$none',
-  textTransform: 'uppercase',
-
-  paddingX: '$8',
-  paddingY: '$3',
-
-  color: '$primary-500',
-
-  borderRadius: '$xs',
-  border: '1px solid $primary-500',
-
-  overflow: 'hidden',
-
-  '@6xl': {
-    fontSize: '$xl',
-    paddingX: '$12',
-    paddingY: '$4',
-  },
-})
-
-const MotionButton = m(StyledButton)
-const MotionBox = m(Box)
+import classNames from 'classnames'
 
 const buttonVariants: Variants = {
   idle: {
@@ -68,12 +32,16 @@ const innerBoxVariants: Variants = {
   },
 }
 
-export const Button = forwardRef<HTMLButtonElement, Omit<ComponentProps<typeof MotionButton>, 'ref'>>(function Button(
-  { children, ...props },
+export const Button = forwardRef<HTMLAnchorElement, React.ComponentPropsWithoutRef<typeof m.a>>(function Button(
+  { children, className, ...props },
   ref,
 ) {
   return (
-    <MotionButton
+    <m.a
+      className={classNames(
+        'relative isolate inline-block overflow-hidden whitespace-nowrap rounded-sm border border-primary-500 px-8 py-3 font-accent text-md font-medium uppercase leading-none text-primary-500 6xl:px-12 6xl:py-4 6xl:text-xl',
+        className,
+      )}
       variants={buttonVariants}
       initial="idle"
       whileHover="hover"
@@ -83,39 +51,25 @@ export const Button = forwardRef<HTMLButtonElement, Omit<ComponentProps<typeof M
       {...props}
     >
       {children}
-      <MotionBox
+      <m.div
         variants={outerBoxVariants}
         transition={{
           duration: 0.6,
           ease: [0.25, 1, 0.5, 1],
         }}
-        css={{
-          position: 'absolute',
-          inset: '-$2',
-          backgroundColor: '$primary-500',
-          backgroundImage: 'url(/images/bg/bg-dark-animated.svg)',
-          backgroundSize: '12px',
-          backgroundRepeat: 'repeat',
-
-          color: '$white',
-          overflow: 'hidden',
-
-          '@reduce-motion': {
-            backgroundImage: 'url(/images/bg/bg-dark.svg)',
-          },
-        }}
+        className="absolute -inset-2 overflow-hidden bg-primary-500 bg-bg-dark-animated bg-[length:12px] bg-repeat text-white motion-reduce:bg-bg-dark"
       >
-        <MotionBox
+        <m.div
           variants={innerBoxVariants}
           transition={{
             duration: 0.6,
             ease: [0.25, 1, 0.5, 1],
           }}
-          css={{ size: '$full', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+          className="flex h-full w-full items-center justify-center"
         >
           {children}
-        </MotionBox>
-      </MotionBox>
-    </MotionButton>
+        </m.div>
+      </m.div>
+    </m.a>
   )
 })

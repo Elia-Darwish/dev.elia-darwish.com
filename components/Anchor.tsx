@@ -1,103 +1,62 @@
 import { forwardRef, useRef } from 'react'
 import { m, useAnimation } from 'framer-motion'
-import { ComponentProps } from '@stitches/react'
 import Link from 'next/link'
+import classNames from 'classnames'
 
-import { styled } from 'stitches.config'
-import { AnchorPrimitive, Span } from 'components/primitives'
 import { composeEventHandlers } from 'utils'
 
-const StyledAnchor = styled(AnchorPrimitive, {
-  position: 'relative',
+interface AnchorProps extends React.ComponentPropsWithoutRef<'a'> {
+  as?: typeof Link
+  variant?: 'link' | 'nav'
+}
 
-  '&:hover, &:focus-visible': {
-    color: '$primary-500',
-  },
+export const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(function Anchor(
+  { children, onMouseEnter, onMouseLeave, onFocus, onBlur, className, as, variant = 'link', ...props },
+  ref,
+) {
+  const Element: React.ElementType = as ?? 'a'
 
-  variants: {
-    variant: {
-      link: {
-        color: '$primary-500',
-      },
-      nav: {
-        color: '$text',
+  const animation = useRef<Promise<unknown>>()
+  const control = useAnimation()
 
-        fontSize: '$sm',
-        textTransform: 'uppercase',
-        fontWeight: '$normal',
+  async function handleMouseEnter() {
+    await animation.current
+    animation.current = control.start({
+      clipPath: ['inset(0% 100% 0% 0%)', 'inset(0% 0% 0% 0%)'],
+    })
+  }
 
-        '@md': {
-          fontSize: '$base',
-        },
-      },
-    },
-  },
+  async function handleMouseLeave() {
+    await animation.current
+    animation.current = control.start({
+      clipPath: ['inset(0% 0% 0% 0%)', 'inset(0% 0% 0% 100%)'],
+    })
+  }
 
-  defaultVariants: {
-    variant: 'link',
-  },
-})
-
-const AnimatedSpan = m(Span)
-
-export const Anchor = forwardRef<HTMLAnchorElement, ComponentProps<typeof StyledAnchor> & { as?: typeof Link }>(
-  function Anchor({ children, onMouseEnter, onMouseLeave, onFocus, onBlur, ...props }, ref) {
-    const animation = useRef<Promise<unknown>>()
-    const control = useAnimation()
-
-    async function handleMouseEnter() {
-      await animation.current
-      animation.current = control.start({
-        clipPath: ['inset(0% 100% 0% 0%)', 'inset(0% 0% 0% 0%)'],
-      })
-    }
-
-    async function handleMouseLeave() {
-      await animation.current
-      animation.current = control.start({
-        clipPath: ['inset(0% 0% 0% 0%)', 'inset(0% 0% 0% 100%)'],
-      })
-    }
-
-    return (
-      <StyledAnchor
-        onMouseEnter={composeEventHandlers(onMouseEnter, handleMouseEnter)}
-        onFocus={composeEventHandlers(onFocus, handleMouseEnter)}
-        onMouseLeave={composeEventHandlers(onMouseLeave, handleMouseLeave)}
-        onBlur={composeEventHandlers(onBlur, handleMouseLeave)}
-        {...props}
-        ref={ref}
-      >
-        {children}
-        <AnimatedSpan
-          css={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            transform: 'translateY(80%)',
-
-            height: '$2',
-            width: '$full',
+  return (
+    <Element
+      className={classNames(className, 'relative transition hover:text-primary-500 focus-visible:text-primary-500', {
+        'text-primary-500': variant === 'link',
+        'text-sm font-normal uppercase text-text md:text-base': variant === 'nav',
+      })}
+      onMouseEnter={composeEventHandlers(onMouseEnter, handleMouseEnter)}
+      onFocus={composeEventHandlers(onFocus, handleMouseEnter)}
+      onMouseLeave={composeEventHandlers(onMouseLeave, handleMouseLeave)}
+      onBlur={composeEventHandlers(onBlur, handleMouseLeave)}
+      {...props}
+      ref={ref}
+    >
+      {children}
+      <m.span className="absolute bottom-0 left-0 h-2 w-full" initial={{ y: '80%' }}>
+        <m.span
+          animate={control}
+          className="bg block h-full w-full bg-wiggle-wide-3-primary-animated-right bg-contain bg-repeat-x"
+          initial={{ clipPath: 'inset(0% 100% 0% 0%)' }}
+          transition={{
+            duration: 0.8,
           }}
-        >
-          <AnimatedSpan
-            animate={control}
-            css={{
-              display: 'block',
-              size: '$full',
-
-              backgroundImage: 'url(/images/bg/bg-wiggle-wide-3-primary-animated-right.svg)',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'repeat-x',
-
-              clipPath: 'inset(0% 100% 0% 0%)',
-            }}
-            transition={{
-              duration: 0.8,
-            }}
-          />
-        </AnimatedSpan>
-      </StyledAnchor>
-    )
-  },
-)
+        />
+      </m.span>
+    </Element>
+  )
+})
