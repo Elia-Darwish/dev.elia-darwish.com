@@ -4,10 +4,10 @@ import Head from 'next/head'
 import { Analytics } from '@vercel/analytics/react'
 
 import { Nav } from 'components/Nav'
-import { Box, Grid } from 'components/primitives'
-import { globalStyles } from 'stitches.config'
 import { Footer } from 'components/Footer'
 import { useFixVh } from 'hooks/useFixVh'
+
+import 'styles/global.css'
 
 // eslint-disable-next-line no-console
 console.log(
@@ -16,7 +16,6 @@ console.log(
 )
 
 function MyApp({ Component, pageProps }: AppProps) {
-  globalStyles()
   useFixVh()
 
   return (
@@ -32,22 +31,15 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <LazyMotion features={domAnimation}>
-        <Grid
-          css={{
-            size: '$full',
-            overflow: 'hidden',
-            gridCols: 1,
-            gridTemplateRows: 'max-content 1fr max-content',
-          }}
-        >
+        <div className="grid h-full w-full grid-cols-1 grid-rows-[max-content_1fr_max-content] overflow-hidden">
           <Nav />
 
-          <Box css={{ paddingX: '$6', size: '$full', overflow: 'hidden', '@md': { paddingX: '$12' } }}>
+          <div className="h-full w-full overflow-hidden px-6 md:px-12">
             <Component {...pageProps} />
-          </Box>
+          </div>
 
           <Footer />
-        </Grid>
+        </div>
       </LazyMotion>
 
       <Analytics />

@@ -1,18 +1,18 @@
-import { darkTheme } from 'stitches.config'
-
 export const KEY = 'theme'
 
-export enum Themes {
-  dark = 'dark',
-  light = 'light',
-}
+export const THEMES = {
+  dark: 'dark',
+  light: 'light',
+} as const
+
+export type Themes = keyof typeof THEMES
 
 export function toggleTheme() {
-  if (document.body.classList.contains(darkTheme.className)) {
-    document.body.classList.remove(darkTheme.className)
-    localStorage.setItem(KEY, Themes.light)
+  if (document.documentElement.classList.contains(THEMES.dark)) {
+    document.documentElement.classList.remove(THEMES.dark)
+    localStorage.setItem(KEY, THEMES.light)
   } else {
-    document.body.classList.add(darkTheme.className)
-    localStorage.setItem(KEY, Themes.dark)
+    document.documentElement.classList.add(THEMES.dark)
+    localStorage.setItem(KEY, THEMES.dark)
   }
 }

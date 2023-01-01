@@ -1,16 +1,13 @@
 import React from 'react'
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 
-import { darkTheme, getCssText } from 'stitches.config'
-import { KEY, Themes } from 'state/theme'
+import { KEY, THEMES } from 'state/theme'
 
 export default class Document extends NextDocument {
   render() {
     return (
       <Html lang="en">
-        <Head>
-          <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
-        </Head>
+        <Head />
 
         <body>
           <script
@@ -18,8 +15,8 @@ export default class Document extends NextDocument {
               __html: `
               const userTheme = localStorage.getItem('${KEY}')
               const prefersDark = !userTheme && window.matchMedia('(prefers-color-scheme: dark)').matches
-              if (userTheme === '${Themes.dark}' || prefersDark) {
-                document.body.classList.add('${darkTheme.className}')
+              if (userTheme === '${THEMES.dark}' || prefersDark) {
+                document.documentElement.classList.add('${THEMES.dark}')
               }
             `,
             }}

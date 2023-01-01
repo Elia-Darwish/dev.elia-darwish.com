@@ -1,26 +1,9 @@
-import { HStack } from 'components/primitives'
 import { Anchor } from 'components/Anchor'
-import { Text } from 'components/typography'
 
 export function Footer() {
   return (
-    <HStack
-      as="footer"
-      css={{
-        paddingX: '$6',
-        paddingY: '$8',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        '@md': { paddingX: '$12' },
-      }}
-    >
-      <HStack
-        css={{
-          justifyContent: 'space-between',
-          width: '$full',
-          '@md': { columnGap: '$8', justifyContent: 'flex-start', width: 'max-content' },
-        }}
-      >
+    <footer className="flex items-center justify-between px-6 py-8 md:px-12">
+      <div className="flex w-full justify-between md:w-max md:justify-start md:gap-x-8">
         <Anchor variant="nav" href="https://github.com/Elia-Darwish" target="_blank" rel="noreferrer">
           Github
         </Anchor>
@@ -36,11 +19,9 @@ export function Footer() {
         <Anchor variant="nav" href="/documents/elia-darwish-cv.pdf" target="_blank" rel="noreferrer">
           CV
         </Anchor>
-      </HStack>
+      </div>
 
-      <Text size="sm" css={{ opacity: 0.8, display: 'none', '@md': { display: 'block' } }}>
-        2022 - Elia Darwish
-      </Text>
-    </HStack>
+      <p className="hidden text-sm opacity-80 md:block">2022 - Elia Darwish</p>
+    </footer>
   )
 }
