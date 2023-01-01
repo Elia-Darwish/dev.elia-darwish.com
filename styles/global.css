@@ -51,7 +51,7 @@
   }
 
   body {
-    @apply h-screen w-screen overflow-hidden bg-bg font-primary leading-normal text-text transition-bg-color;
+    @apply h-vh w-screen overflow-hidden bg-bg font-primary leading-normal text-text transition-bg-color;
 
     background-image: url(/images/bg/bg.svg);
     background-size: 12px;
@@ -78,6 +78,6 @@
   h4,
   h5,
   h6 {
-    @apply font-accent text-heading leading-tight;
+    @apply font-accent leading-tight text-heading;
   }
 }
