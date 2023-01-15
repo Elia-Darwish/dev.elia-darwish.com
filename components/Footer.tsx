@@ -21,7 +21,7 @@ export function Footer() {
         </Anchor>
       </div>
 
-      <p className="hidden text-sm opacity-80 md:block">2022 - Elia Darwish</p>
+      <p className="hidden text-sm opacity-80 md:block">2023 - Elia Darwish</p>
     </footer>
   )
 }

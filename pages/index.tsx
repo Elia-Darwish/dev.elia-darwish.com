@@ -71,7 +71,7 @@ const Home: NextPage = () => {
           'https://twitter.com/DarwishElia',
           'https://www.linkedin.com/in/elia-darwish/',
           'https://github.com/Elia-Darwish',
-          'https://elia-darwish.dev',
+          'https://art.elia-darwish.dev',
           'https://www.instagram.com/eliadarwish',
           'https://www.tiktok.com/@darwishelia',
           'https://www.pinterest.de/darwishelia',
