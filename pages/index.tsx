@@ -62,9 +62,9 @@ const Home: NextPage = () => {
         name="Elia Darwish"
         url="https://elia-darwish.dev"
         image={[
-          'https://www.elia-darwish.dev/images/avatar-1x1.jpg',
-          'https://www.elia-darwish.dev/images/avatar-4x3.jpg',
-          'https://www.elia-darwish.dev/images/avatar-16x9.jpg',
+          'https://elia-darwish.dev/images/avatar-1x1.jpg',
+          'https://elia-darwish.dev/images/avatar-4x3.jpg',
+          'https://elia-darwish.dev/images/avatar-16x9.jpg',
         ]}
         jobTitle="Web Developer"
         sameAs={[
@@ -72,6 +72,9 @@ const Home: NextPage = () => {
           'https://www.linkedin.com/in/elia-darwish/',
           'https://github.com/Elia-Darwish',
           'https://elia-darwish.dev',
+          'https://www.instagram.com/eliadarwish',
+          'https://www.tiktok.com/@darwishelia',
+          'https://www.pinterest.de/darwishelia',
         ]}
         worksFor={{
           '@type': 'Organization',
