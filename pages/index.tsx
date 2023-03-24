@@ -16,7 +16,6 @@ const Home: NextPage = () => {
           name="description"
           content="Elia Darwish is a web developer with a big passion for Frontend. He enjoy creating and refining accessible user interfaces and UI elements."
         />
-        <link rel="canonical" href="https://elia-darwish.dev/" />
       </Head>
 
       <main className="isolate grid h-full w-full grid-cols-1 grid-rows-[1.2fr_1fr] xl:grid-cols-2 xl:grid-rows-1 xl:gap-8 xl:p-8">
@@ -71,10 +70,6 @@ const Home: NextPage = () => {
           'https://twitter.com/DarwishElia',
           'https://www.linkedin.com/in/elia-darwish/',
           'https://github.com/Elia-Darwish',
-          'https://art.elia-darwish.dev',
-          'https://www.instagram.com/eliadarwish',
-          'https://www.tiktok.com/@darwishelia',
-          'https://www.pinterest.de/darwishelia',
         ]}
         worksFor={{
           '@type': 'Organization',
