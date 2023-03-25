@@ -1,47 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+  <url>
+    <loc>https://elia-darwish.dev/</loc>
+    <lastmod>2023-01-15T10:02:45+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
 
-<url>
-  <loc>https://elia-darwish.dev/</loc>
-  <lastmod>2023-01-15T10:02:45+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-
-<url>
-  <loc>https://github.com/Elia-Darwish</loc>
-  <lastmod>2023-01-15T10:02:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-<url>
-  <loc>https://twitter.com/DarwishElia</loc>
-  <lastmod>2023-01-15T10:02:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-<url>
-  <loc>https://www.linkedin.com/in/elia-darwish/</loc>
-  <lastmod>2023-01-15T10:02:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-<url>
-  <loc>https://poly.me/elia_darwish/</loc>
-  <lastmod>2023-01-15T10:02:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-<url>
-  <loc>https://elia-darwish.dev/documents/elia-darwish-cv.pdf</loc>
-  <lastmod>2023-01-15T10:02:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-
+  <url>
+    <loc>https://elia-darwish.dev/documents/elia-darwish-cv.pdf</loc>
+    <lastmod>2023-01-15T10:02:45+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
 </urlset>
