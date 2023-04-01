@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { m, Variants } from 'framer-motion'
+import { HTMLMotionProps, m, Variants } from 'framer-motion'
 import classNames from 'classnames'
 
 const buttonVariants: Variants = {
@@ -32,7 +32,7 @@ const innerBoxVariants: Variants = {
   },
 }
 
-export const Button = forwardRef<HTMLAnchorElement, React.ComponentPropsWithoutRef<typeof m.a>>(function Button(
+export const Button = forwardRef<HTMLAnchorElement, HTMLMotionProps<'a'>>(function Button(
   { children, className, ...props },
   ref,
 ) {
@@ -50,26 +50,28 @@ export const Button = forwardRef<HTMLAnchorElement, React.ComponentPropsWithoutR
       ref={ref}
       {...props}
     >
-      {children}
-      <m.div
-        variants={outerBoxVariants}
-        transition={{
-          duration: 0.6,
-          ease: [0.25, 1, 0.5, 1],
-        }}
-        className="absolute -inset-2 overflow-hidden bg-primary-500 bg-bg-dark-animated bg-[length:12px] bg-repeat text-white motion-reduce:bg-bg-dark"
-      >
+      <>
+        {children}
         <m.div
-          variants={innerBoxVariants}
+          variants={outerBoxVariants}
           transition={{
             duration: 0.6,
             ease: [0.25, 1, 0.5, 1],
           }}
-          className="flex h-full w-full items-center justify-center"
+          className="absolute -inset-2 overflow-hidden bg-primary-500 bg-bg-dark-animated bg-[length:12px] bg-repeat text-white motion-reduce:bg-bg-dark"
         >
-          {children}
+          <m.div
+            variants={innerBoxVariants}
+            transition={{
+              duration: 0.6,
+              ease: [0.25, 1, 0.5, 1],
+            }}
+            className="flex h-full w-full items-center justify-center"
+          >
+            {children}
+          </m.div>
         </m.div>
-      </m.div>
+      </>
     </m.a>
   )
 })
