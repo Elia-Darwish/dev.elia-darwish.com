@@ -59,11 +59,11 @@ const Home: NextPage = () => {
       <SocialProfileJsonLd
         type="Person"
         name="Elia Darwish"
-        url="https://elia-darwish.dev"
+        url="https://dev.elia-darwish.com"
         image={[
-          'https://elia-darwish.dev/images/avatar-1x1.jpg',
-          'https://elia-darwish.dev/images/avatar-4x3.jpg',
-          'https://elia-darwish.dev/images/avatar-16x9.jpg',
+          'https://dev.elia-darwish.com/images/avatar-1x1.jpg',
+          'https://dev.elia-darwish.com/images/avatar-4x3.jpg',
+          'https://dev.elia-darwish.com/images/avatar-16x9.jpg',
         ]}
         jobTitle="Web Developer"
         sameAs={[
