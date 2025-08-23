@@ -1,7 +1,5 @@
 import { m } from 'framer-motion'
-import Link from 'next/link'
 
-import { Logo } from 'components/Logo'
 import { toggleTheme } from 'state/theme'
 
 export function Nav() {
