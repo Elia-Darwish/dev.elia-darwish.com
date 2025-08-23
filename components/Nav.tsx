@@ -6,11 +6,7 @@ import { toggleTheme } from 'state/theme'
 
 export function Nav() {
   return (
-    <nav className="flex items-center justify-between px-6 py-3 md:px-12">
-      <Link href="/" title="home">
-        <Logo className="-ml-3 h-20 w-20 text-heading md:h-24 md:w-24" />
-      </Link>
-
+    <nav className="flex items-center justify-end px-6 py-3 md:px-12">
       <m.button
         className="h-10 w-10 rounded-lg border-2 border-text shadow-md"
         aria-label="switch theme"
